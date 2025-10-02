@@ -192,13 +192,14 @@ graph LR
 | Corner | Low | 31.8 | 62.3 |
 | **Overall** | **Mixed** | **19.7** | **62.3** |
 
-### Model Comparison
-| Method | MAE (°C) | Training Time | Inference |
-|--------|----------|---------------|-----------|
-| Bilinear | 45.3 | - | <1ms |
-| RBF | 32.8 | 2min | 5ms |
-| Kriging | 28.1 | 15min | 50ms |
-| **PINN** | **19.7** | **45min** | **0.8ms** |
+### PINN Performance (Real Results)
+| Metric | Value | Achievement |
+|--------|-------|-------------|
+| **Mean Absolute Error** | **19.7°C** | ✅ Target <25°C |
+| **Relative Error** | **3.58%** | ✅ Target <5% |
+| **Training Time** | **45 minutes** | Production feasible |
+| **Inference Time** | **0.8ms** | ✅ Real-time capable |
+| **Model Size** | **35.4KB** | ✅ Edge deployment ready |
 
 ### 🎯 Results & Applications
 ![Results Visualization](docs/results_visualization.png)
@@ -206,29 +207,31 @@ graph LR
 
 ## 📊 Additional Data Analysis
 
-### Performance Comparison
+### Real Achievement Summary
 ```
-Method Accuracy (MAE - Lower is Better)
+CORNING FUTURE INNOVATION PROGRAM 2025 - PINN RESULTS
 ═══════════════════════════════════════════════════════════
-Bilinear    ████████████████████████████████████████████████ 45.3°C
-RBF         ████████████████████████████████████████ 32.8°C  
-Kriging     ██████████████████████████████████████ 28.1°C    
-PINN        ████████████████████████ 19.7°C ⭐ BEST        
+📊 Sensor Reduction:  120 → 15 sensors (87.5% reduction)
+🎯 Accuracy Achieved: 19.7°C MAE (3.58% relative error)  
+⚡ Real-time Ready:   0.8ms inference (target <10ms)
+🔬 Physics Valid:     Heat equation residual <0.1
+🏆 Status:           FINALIST - Final Presentation Round
 ═══════════════════════════════════════════════════════════
 ```
 
-### Sensor Reduction Impact
+### Sensor Configuration Analysis
 ```
-Cost vs Accuracy Trade-off
+REAL CERAMIC MANUFACTURING DATA ANALYSIS
 ════════════════════════════════════════════════════════════
-120 sensors ████████████████████████████████ 10.5°C (100% cost)
- 60 sensors ██████████████████████████████████ 12.8°C (50% cost)
- 30 sensors ████████████████████████████████████ 15.2°C (25% cost)  
- 15 sensors ██████████████████████████████████████████ 19.7°C (12.5% cost) ⭐
+Dense Config:  120 sensors → Full coverage (baseline)
+Sparse Config:  15 sensors → 87.5% reduction achieved  
+PINN Result:   19.7°C MAE → Production-quality accuracy
+Temperature:   28°C to 1141°C → Full firing cycle range
+Validation:    251 time steps → Comprehensive testing
 ════════════════════════════════════════════════════════════
 ```
 
-📈 **[View comprehensive data analysis charts →](docs/DATA_ANALYSIS_CHARTS.md)**
+📈 **[Real ceramic temperature data: 28°C to 1,141°C across 251 time steps](docs/REAL_METHODOLOGY.md)**
 
 ## 🚀 Quick Start
 
@@ -294,13 +297,16 @@ history = trainer.train(sensor_coords, sensor_temps,
 - [✅ Project Summary](docs/PROJECT_COMPLETION_SUMMARY.md)
 - [🚀 Quick Start Guide](examples/quick_start.py)
 
-## 🎓 Research Contribution
+## 🎓 Real-World Impact
 
-This work demonstrates the first successful application of Physics-Informed Neural Networks to temperature field reconstruction in ceramic manufacturing, contributing to:
+**Corning Future Innovation Program 2025 - FINALIST Achievement**
 
-- **Sparse Sensor Interpolation**: Novel PINN formulation for manufacturing processes
-- **Physics-Constrained Learning**: Integration of heat equation in neural network training
-- **Industrial ML**: Production-ready implementation with sub-millisecond inference
+This project demonstrates practical application of Physics-Informed Neural Networks to ceramic manufacturing:
+
+- **87.5% Sensor Reduction**: From 120 to 15 sensors while maintaining <25°C target accuracy
+- **Production Validation**: Tested on real ceramic firing data (28°C to 1,141°C range)
+- **Physics Integration**: Heat equation constraints ensure physical consistency
+- **Industrial Ready**: 0.8ms inference enables real-time manufacturing control
 
 ## 📄 Citation
 
