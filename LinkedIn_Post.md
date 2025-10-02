@@ -28,7 +28,7 @@ The model is production-ready and could transform how Corning approaches tempera
 
 Huge thanks to the Corning team for the mentorship and the opportunity to work on such an impactful real-world problem! This experience perfectly demonstrates how physics-informed AI can drive both innovation and sustainability in manufacturing.
 
-The complete implementation is now available on GitHub: [link to your repository]
+The complete implementation is now available on GitHub: https://github.com/dbajaj123/Corning
 
 #AI #MachineLearning #PhysicsInformedNeuralNetworks #Manufacturing #Innovation #Corning #FutureInnovator #DeepLearning #IndustrialAI #SmartManufacturing #PINN #TensorComputing #AdvancedCeramics
 
