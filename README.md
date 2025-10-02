@@ -4,9 +4,11 @@
 
 A Physics-Informed Neural Network (PINN) implementation for sparse sensor temperature field reconstruction in ceramic manufacturing processes.
 
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue?logo=python)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red?logo=pytorch)
 ![License](https://img.shields.io/badge/license-MIT-green)
+![Corning](https://img.shields.io/badge/Corning-Future%20Innovation-orange)
+![Status](https://img.shields.io/badge/status-Production%20Ready-brightgreen)
 
 ---
 
@@ -33,12 +35,17 @@ Temperature Range: 400-600°C
 graph TD
     A[Raw Temperature Data] --> B[Sensor Locations]
     A --> C[Temperature Measurements] 
-    B --> D[Spatial Coordinates r,z]
-    C --> E[Normalization μ=500°C, σ=50°C]
-    D --> F[Domain Bounds: r∈[-15,15], z∈[-10,10]]
+    B --> D[Spatial Coordinates]
+    C --> E[Temperature Normalization]
+    D --> F[Domain Definition]
     E --> G[Training Data]
     F --> G
 ```
+
+**Processing Details:**
+- **Coordinates**: r ∈ [-15,15]mm, z ∈ [-10,10]mm  
+- **Normalization**: μ=500°C, σ=50°C
+- **Domain**: 2D cylindrical coordinates
 
 ### Sensor Placement Analysis
 | Configuration | Sensors | Coverage | Spatial Resolution |
@@ -150,15 +157,15 @@ test_domain = full_2D_grid  # Dense evaluation points
 
 ## 📊 Results Visualization
 
-### Temperature Field Reconstruction
+### PINN Architecture Flow
 ```mermaid
 graph LR
     A[15 Sensor Points] --> B[PINN Model]
-    B --> C[Full Temperature Field]
-    C --> D[120-point Validation]
-    
-    E[Physics Constraints] --> B
-    F[Heat Equation] --> E
+    A --> B
+    C[Physics Constraints] --> B
+    D[Heat Equation] --> C
+    B --> E[Temperature Field]
+    E --> F[Validation]
 ```
 
 ### Error Analysis Breakdown
@@ -201,57 +208,33 @@ temperatures = model.predict(coords)
 print(f"Predicted temperatures: {temperatures}")
 ```
 
-### Advanced Usage
+### Custom Training
 ```python
 from src.pinn_model import PINNTrainer
 
-# Custom training
 trainer = PINNTrainer(model, learning_rate=1e-3)
-history = trainer.train(
-    sensor_coords=coords_15,
-    sensor_temps=temps_15,
-    domain_bounds=(-15, 15, -10, 10),
-    epochs=2000
-)
+history = trainer.train(sensor_coords, sensor_temps, 
+                       domain_bounds=(-15, 15, -10, 10), epochs=2000)
 ```
 
 ## 📁 Repository Structure
 
 ```
-📦 pinn-ceramic-temperature/
-├── 📊 PINNS_Temperature_Interpolation_Analysis.ipynb  # Complete analysis
-├── 📂 src/
-│   ├── pinn_model.py          # Core PINN implementation
-│   └── model.py               # Original research code
-├── 📂 data/
-│   ├── ps1_dataA_15TC.csv     # Sparse sensor data
-│   └── ps1_dataA_120TC.csv    # Dense reference data  
-├── 📂 models/
-│   └── trained_pinn_model.pth # Pre-trained model
-├── 📂 docs/                   # Technical documentation
-├── 📂 examples/
-│   └── quick_start.py         # Usage examples
-└── 📋 requirements.txt        # Dependencies
+📦 Corning/
+├── 📊 PINNS_Temperature_Interpolation_Analysis.ipynb  # Main implementation
+├── 📂 src/pinn_model.py          # Core PINN implementation  
+├── 📂 data/ps1_dataA_15TC.csv    # Sparse sensor data (15 sensors)
+├── 📂 models/trained_pinn_model.pth # Pre-trained model
+├── 📂 examples/quick_start.py    # Usage demo
+└── 📂 docs/                      # Technical documentation
 ```
 
-## 🧪 Experimental Setup
+� **[See complete structure →](STRUCTURE.md)**
 
-### Hardware Configuration
-```
-CPU: Intel i7-11700K (8 cores)
-RAM: 32GB DDR4
-GPU: RTX 3080 (10GB VRAM)
-Training Time: ~45 minutes
-```
+## 🧪 Technical Specifications
 
-### Software Environment
-```
-Python: 3.9.16
-PyTorch: 2.0.1
-NumPy: 1.24.3
-Pandas: 2.0.3
-Matplotlib: 3.7.1
-```
+**Hardware**: Intel i7-11700K, 32GB RAM, RTX 3080 | **Training**: ~45 minutes  
+**Software**: Python 3.9+, PyTorch 2.0+, NumPy, Pandas, Matplotlib
 
 ## 📚 Documentation
 
