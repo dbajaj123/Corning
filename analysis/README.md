@@ -57,7 +57,7 @@ PINN            19.7         ~25          baseline
 - Saves results as PNG files
 
 **Generated Files:**
-- `sensor_layout_comparison.png` - Sensor placement visualization
+
 - `performance_comparison.png` - Method performance comparison
 
 ## 🔬 Technical Details
@@ -182,7 +182,7 @@ print(f"Custom analysis MAE: {results['mae_mean']:.1f}°C")
 ## 📈 Visualization Examples
 
 ### Sensor Layout Comparison
-![Sensor Layout](../results/sensor_layout_comparison.png)
+
 
 ### Performance Comparison  
 ![Performance](../results/performance_comparison.png)

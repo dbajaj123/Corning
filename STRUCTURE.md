@@ -31,7 +31,6 @@
 │   └── trained_pinn_model.pth                         # Pre-trained PINN model
 │
 ├── 📂 results/                                        # 🆕 Analysis Results & Visualizations
-│   ├── sensor_layout_comparison.png                  # Sensor placement visualization
 │   └── performance_comparison.png                     # Method performance charts
 │
 ├── 📂 docs/                                           # Comprehensive Documentation

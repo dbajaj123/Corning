@@ -84,9 +84,7 @@ def create_sensor_layout_comparison():
     plt.tight_layout()
     plt.subplots_adjust(top=0.85, bottom=0.15)
     
-    # Save figure
-    plt.savefig('sensor_layout_comparison.png', dpi=300, bbox_inches='tight')
-    print("📊 Sensor layout comparison saved as 'sensor_layout_comparison.png'")
+    # Save figure removed as requested
     
     plt.show()
     
@@ -180,7 +178,7 @@ def main():
         
         print("\\n✅ All visualizations completed successfully!")
         print("\\nFiles created:")
-        print("- sensor_layout_comparison.png")
+
         print("- performance_comparison.png")
         
         print("\\n🎯 KEY INSIGHTS FROM VISUALIZATION:")
