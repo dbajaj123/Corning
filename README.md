@@ -54,10 +54,6 @@ graph TD
 | Sparse (15TC) | 15 | 12.5% | 10mm spacing |
 | **PINN Reconstruction** | **15** | **100%** | **2.5mm effective** |
 
-### 📊 Dataset Visualization
-![Dataset Analysis](docs/dataset_analysis.png)
-*Comprehensive analysis showing sensor configurations, temperature distributions, and data quality metrics*
-
 ## 🧠 Model Architecture
 
 ### Network Design
